@@ -23,3 +23,17 @@ test("The engineer should extend the employee class", () => {
   const engineer = new Engineer();
   expect(engineer).toBeInstanceOf(Employee);
 });
+
+test("On construction the base class is initilised", () => {
+  // Arrange
+  const name = "Bobby";
+  const id = 33;
+  const email = "email@inbox.com"
+  // Act
+  const engineer = new Engineer(name, id, email);
+  // Assert
+  expect(engineer.name).toBe(name);
+  expect(engineer.id).toBe(id);
+  expect(engineer.email).toBe(email);
+
+})
