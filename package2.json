@@ -1,0 +1,28 @@
+{
+    "name": "oop-team-profile-generator",
+    "version": "1.0.0",
+    "description": "an app to generate team profile generator ",
+    "main": "index.js",
+    "directories": {
+      "lib": "lib"
+    },
+    "scripts": {
+      "test": "jest"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/makemassair/OOP-Team-Profile-Generator.git"
+    },
+    "author": "Michael Frank Samaras",
+    "license": "The Unlicense",
+    "bugs": {
+      "url": "https://github.com/makemassair/OOP-Team-Profile-Generator/issues"
+    },
+    "homepage": "https://github.com/makemassair/OOP-Team-Profile-Generator#readme",
+    "devDependencies": {
+      "jest": "^29.4.3"
+    },
+    "dependencies": {
+      "inquirer": "^9.1.4"
+    }
+  }

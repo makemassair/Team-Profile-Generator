@@ -1,0 +1,33 @@
+{
+  "name": "oop-team-profile-generator",
+  "version": "1.0.0",
+  "description": "an app to generate team profile using object-oriented programming",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^9.1.4",
+    "jest": "^29.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makemassair/OOP-Team-Profile-Generator.git"
+  },
+  "keywords": [
+    "oop",
+    "jest",
+    "npm",
+    "javascript"
+  ],
+  "author": "Michael Frank Samaras",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/makemassair/OOP-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/makemassair/OOP-Team-Profile-Generator#readme"
+}
