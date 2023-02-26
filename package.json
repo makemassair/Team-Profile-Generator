@@ -7,7 +7,6 @@
     "lib": "lib"
   },
   "dependencies": {
-    "email-validator": "^2.0.4",
     "inquirer": "^8.0.0"
   },
   "devDependencies": {
