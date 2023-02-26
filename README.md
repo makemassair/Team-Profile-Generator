@@ -28,7 +28,7 @@ To generate the HTML file, run `node index.js` in the command-line at the root o
 
 ### Screenshot
 
-![image](screenshot.JPG)
+![image](./screenshot.jpg)
 
 ## License
 License used for this project - The Unlicense
