@@ -147,6 +147,65 @@ function addEngineer() {
     })
 }
 
+function addIntern() {
+    inquirer.prompt([
+        {
+            type: `input`,
+            name: `name`,
+            message: `Enter the Intern's name:`
+        },
+        {
+            type: `input`,
+            name: `id`,
+            message: `Enter your Intern's ID number`,
+            validate: (answer) => {
+                if(isNaN(answer)) {
+                    return `Please enter a number`
+                }
+                return true;
+            }
+        },
+        {
+            type: `input`,
+            name: `email`,
+            message: `Enter the email address for this Intern:`,
+            validate: function (email) {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                if (valid) {
+                    return true;
+                } else {
+                    return `Please enter a valid email`
+                }
+            }
+        },
+        {
+            type: `input`,
+            name: `school`,
+            message: `Enter the Intern's school:`
+        }
+    ])
+    .then((value) => {
+        const intern = new Intern(
+            value.name,
+            value.id,
+            value.email,
+            value.school
+        )
+        console.table(intern);
+        teamArray.push(intern);
+        addTeam();
+    })
+}
+function createDocument() {
+    if(!fs.existsSync(OUTPUT_DIR)) { // if no OUTPUT directory exists, create one
+        fs.mkdirSync(OUTPUT_DIR);
+    } else {
+        fs.writeFilesync(outputPath, render(teamArray), `utf-8`)
+        return `Your file has been created in the folder: output`;
+    }
+}
+
+
 
 assembleTeam();
 
