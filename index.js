@@ -1,15 +1,102 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
+const inquirer = require('inquirer');
 const path = require("path");
 const fs = require("fs");
+var validator = require("email-validator");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
+const { table } = require("console");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
+
+let teamArray = []; // array to contain team member
+
+async function assembleTeam() {
+    addManager();
+}
+
+function addManager() {
+    inquirer.prompt([
+        {
+            type: `input`,
+            name: `name`,
+            message: `What is the manager's name?`
+        },
+        {
+            type: `input`,
+            name: `id`,
+            message: `Enter your manager's ID number:`,
+            validate: (answer) => {
+                if(isNaN(answer)) {
+                    return `Please enter a number`
+                }
+                return true;
+            }
+         },
+        {
+            type: `input`,
+            name: `email`,
+            message: `Enter the email address for this manager:`,
+            validate: function (email) {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                if (valid) {
+                    return true;
+                } else {
+                    return `Please enter a valid email`
+                }
+            }
+        },
+        {
+            type: `input`,
+            name: `officeNumber`,
+            message: `Enter the manager's office number`,
+            validate: (answer) => {
+                if(isNaN(answer)) {
+                    return `Please enter a number`
+                }
+                return true;
+            }
+        }
+    ])
+    .then((value) => {
+        const manager = new Manager(
+            value.name,
+            value.id,
+            value.email,
+            value.officeNumber
+        );
+        console.table(manager);
+        teamArray.push(manager);
+        addTeam();
+    });
+}
+
+aync function addTeam() {
+    inquirer.prompt([
+        {
+            type: `list`,
+            name: `memberType`,
+            message: `Add an Engineer or an Intern to the team?`,
+            choices: [`Engineer`, `Intern`, `I've finished building the team`]
+        }
+    ])
+    .then((value) => {
+        if (value.memberType === `Engineer`) {
+            addEngineer();
+        } else if (value.memberType === `Intern`) {
+            addIntern();
+        } else {
+            createDocument();
+        }
+    })
+}
+
+
+assembleTeam();
 
