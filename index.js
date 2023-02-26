@@ -77,7 +77,7 @@ function addManager() {
     });
 }
 
-aync function addTeam() {
+function addTeam() {
     inquirer.prompt([
         {
             type: `list`,
@@ -94,6 +94,56 @@ aync function addTeam() {
         } else {
             createDocument();
         }
+    });
+}
+
+function addEngineer() {
+    inquirer.prompt([
+        {
+            type: `input`,
+            name: `name`,
+            message: `Engineer's name:`
+        },
+        {
+            type: `input`,
+            name: `id`,
+            message: `Enter your Engineeer's ID number`,
+            validate: (answer) => {
+                if(isNaN(answer)) {
+                    return `Please enter a number`
+                }
+                return true;
+            }
+        },
+        {
+            type: `input`,
+            name: `email`,
+            message: `Enter the email address for this Engineer:`,
+            validate: function (email) {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                if (valid) {
+                    return true;
+                } else {
+                    return `Please enter a valid email`
+                }
+            }
+        },
+        {
+            type: `input`,
+            name: `github`,
+            message: `Enter the Engineer's GitHub username:`
+        }
+    ])
+    .then((value) => {
+        const engineer = new Engineer(
+            value.name,
+            value.id,
+            value.email,
+            value.github
+        )
+        console.table(engineer);
+        teamArray.push(engineer);
+        addTeam();
     })
 }
 
