@@ -195,11 +195,12 @@ function addIntern() {
         addTeam();
     })
 }
+
 function createDocument() {
-    if(!fs.existsSync(OUTPUT_DIR)) { // if no OUTPUT directory exists, create one
+    if (!fs.existsSync(OUTPUT_DIR)) { // if no OUTPUT directory exists, create one
         fs.mkdirSync(OUTPUT_DIR);
     } else {
-        fs.writeFilesync(outputPath, render(teamArray), `utf-8`)
+        fs.writeFileSync(outputPath, render(teamArray), `utf-8`)
         return `Your file has been created in the folder: output`;
     }
 }
