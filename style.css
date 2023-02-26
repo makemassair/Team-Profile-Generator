@@ -1,0 +1,10 @@
+body {background: rgb(237, 237, 237);}
+h1 {color: #fff;}
+h3 {font-weight: normal;font-size: 1em;text-transform: uppercase;}
+.jumbotron {background: rgb(232, 71, 86);border-bottom: 4px solid #fff;border-radius: 0;}
+.container {margin-top: 2rem;}
+.team-area {flex-wrap: wrap;column-gap: 2rem;row-gap: 2rem;}
+.fas {background: #fff;border-radius: 100px;color: rgb(0,119,247);padding: 9px;}
+.employee-card {box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;min-width: 300px;}
+.card-header {background: rgb(0,119,247);color: #fff;}
+.card-body {background: rgb(246,247,249);}

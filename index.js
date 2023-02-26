@@ -201,7 +201,7 @@ function createDocument() {
         fs.mkdirSync(OUTPUT_DIR);
     } else {
         fs.writeFileSync(outputPath, render(teamArray), `utf-8`)
-        return `Your file has been created in the folder: output`;
+        console.log(`Congratulations!\nYour file has been created in the folder: output`);
     }
 }
 
