@@ -3,8 +3,7 @@
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg?style=for-the-badge&logo=appveyor)](http://unlicense.org/)
 
-A deployed version of this project [can be viewed here.](https://makemassair.github.io/OOP-Team-Profile-Generator/)
-
+A deployed version of this project [can be viewed here.](https://makemassair.github.io/Team-Profile-Generator/)
 ## Description
 This is an app that generates HTML files using input from a command-line interface.
 
